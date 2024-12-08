@@ -154,6 +154,12 @@ Tempo: ${formatTimeElapsed(hours)}`;
         return code.substring(0, 5);
     };
 
+    const handleScroll = (e) => {
+        const element = e.target;
+        const isScrolled = element.scrollTop > 0;
+        element.dataset.scrolled = isScrolled.toString();
+    };
+
     if (loading) return <LoadingScreen />;
     if (error) return <div className="error-message">{error}</div>;
 
@@ -221,7 +227,7 @@ Tempo: ${formatTimeElapsed(hours)}`;
                             ))}
                             {(!errors[type] || errors[type].length === 0) && (
                                 <div className="empty-column">
-                                    Nenhum erro pendente
+                                    {type === 'reset' ? 'Sistema OK' : 'Nenhum erro pendente'}
                                 </div>
                             )}
                         </div>

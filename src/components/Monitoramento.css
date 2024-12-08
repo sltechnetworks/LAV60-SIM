@@ -1,15 +1,30 @@
 .monitoramento-container {
-    padding: 15px;
+    padding: 10px;
     height: 100%;
 }
 
 .error-columns {
     display: grid;
-    grid-template-columns: repeat(14, minmax(120px, 1fr));
-    gap: 8px;
+    grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    gap: 4px;
     height: calc(100vh - 100px);
     overflow-x: auto;
     padding-bottom: 8px;
+}
+
+.error-columns::-webkit-scrollbar {
+    height: 8px;
+    background-color: #f1f1f1;
+}
+
+.error-columns::-webkit-scrollbar-thumb {
+    background-color: #c0c0c0;
+    border-radius: 4px;
+}
+
+.error-columns::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    border-radius: 4px;
 }
 
 .error-column {
@@ -18,14 +33,40 @@
     padding: 0;
     display: flex;
     flex-direction: column;
-    width: 120px;
+    min-width: 90px;
     position: relative;
+}
+
+.empty-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #2ecc71;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.75rem;
+}
+
+.empty-column::before {
+    content: "✓";
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #2ecc71;
+    background-color: #edfbf3;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #2ecc71;
 }
 
 .column-title {
     color: #2c3e50;
-    font-size: 0.85rem;
-    padding: 8px;
+    font-size: 0.75rem;
+    padding: 6px;
     border-bottom: 1px solid #e0e0e0;
     display: flex;
     align-items: center;
@@ -44,18 +85,18 @@
 .error-count {
     background-color: #3498db;
     color: white;
-    padding: 1px 5px;
+    padding: 1px 4px;
     border-radius: 8px;
-    font-size: 0.75rem;
-    margin-left: 4px;
+    font-size: 0.7rem;
+    margin-left: 2px;
     font-weight: normal;
 }
 
 .cards-container {
     flex: 1;
     overflow-y: auto;
-    padding: 6px;
-    padding-top: 30px;
+    padding: 4px;
+    padding-top: 20px;
 }
 
 .cards-container::-webkit-scrollbar {
@@ -75,10 +116,10 @@
 .error-card {
     background: white;
     border-radius: 3px;
-    padding: 6px 8px;
-    margin-bottom: 6px;
+    padding: 4px 6px;
+    margin-bottom: 4px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    border-left: 4px solid;
+    border-left: 3px solid;
     transition: all 0.2s ease;
     cursor: help;
     position: relative;
