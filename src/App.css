@@ -1,0 +1,56 @@
+.app {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f6fa;
+    position: relative;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 250px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: margin-left 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.page-content {
+    padding: 20px;
+    height: 100%;
+    position: relative;
+}
+
+/* Ajuste para quando a sidebar estiver em modo compacto */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 60px;
+    }
+}
+
+/* Estilos globais para garantir comportamento correto do scroll */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Garantir que o loading e outros elementos não cubram a sidebar */
+.loading-screen,
+.error-message,
+.notification {
+    margin-left: 250px;
+}
+
+@media (max-width: 768px) {
+    .loading-screen,
+    .error-message,
+    .notification {
+        margin-left: 60px;
+    }
+} 

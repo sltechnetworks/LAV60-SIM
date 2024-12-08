@@ -1,0 +1,90 @@
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    min-width: 300px;
+    max-width: 90%;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1200;
+    animation: slideInRight 0.3s ease-out;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.toast-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.toast-message {
+    flex-grow: 1;
+    color: white;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.toast-close {
+    background: none;
+    border: none;
+    color: white;
+    opacity: 0.8;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+/* Tipos de Toast */
+.toast-container.success {
+    background-color: #2ecc71;
+    border-left: 4px solid #27ae60;
+}
+
+.toast-container.error {
+    background-color: #e74c3c;
+    border-left: 4px solid #c0392b;
+}
+
+.toast-container.warning {
+    background-color: #f1c40f;
+    border-left: 4px solid #f39c12;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .toast-container {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        min-width: unset;
+        max-width: calc(100% - 20px);
+    }
+
+    .toast-message {
+        font-size: 0.9rem;
+    }
+} 

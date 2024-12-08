@@ -1,0 +1,81 @@
+.update-status {
+    display: flex;
+    align-items: center;
+    cursor: help;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    position: relative;
+}
+
+.update-icon {
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.update-icon.rotating {
+    animation: rotate 1s linear infinite;
+    color: #3498db;
+}
+
+.update-icon.connected {
+    color: #2ecc71;
+}
+
+.update-icon.error {
+    color: #e74c3c;
+}
+
+.countdown-tooltip {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+    z-index: 9999;
+}
+
+.countdown-tooltip::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent;
+}
+
+.update-status:hover .countdown-tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Ajustes para sidebar colapsada */
+.sidebar.collapsed .update-status {
+    padding: 4px;
+    margin: 0 auto;
+}
+
+.sidebar.collapsed .update-icon {
+    margin: 0;
+}
+
+/* Ajuste para garantir que o tooltip não seja cortado */
+.sidebar-header {
+    position: relative;
+    z-index: 1;
+} 
